@@ -340,4 +340,4 @@ def get_charm_class_for_release():
     ceph_release = UCA_CODENAME_MAP[target_release]
     releases = sorted(list(set(UCA_CODENAME_MAP.values())))
     os_releases = sorted(list(set(UCA_CODENAME_MAP.keys())))
-    return get_charm_class(release=ceph_release, all_releases=os_releases, all_ceph_releases=releases)
+    return get_charm_class(release=target_release, all_releases=os_releases, all_ceph_releases=releases)
