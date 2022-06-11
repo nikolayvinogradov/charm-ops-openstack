@@ -262,7 +262,7 @@ def charm_class(cls):
 
 
 # Adapted from charms_openstack.charm.core
-def get_charm_class(release=None, package_type='deb', all_releases=None,
+def get_charm_class(release=None, package_type='deb', all_releases=None, all_ceph_releases=None,
                     *args, **kwargs):
     """Get an instance of the charm based on the release (or use the
     default if release is None).
@@ -339,4 +339,5 @@ def get_charm_class_for_release():
     # Check for a cepch charm match first:
     ceph_release = UCA_CODENAME_MAP[target_release]
     releases = sorted(list(set(UCA_CODENAME_MAP.values())))
-    return get_charm_class(release=ceph_release, all_releases=releases)
+    os_releases = sorted(list(set(UCA_CODENAME_MAP.keys())))
+    return get_charm_class(release=ceph_release, all_releases=os_releases, all_ceph_releases=releases)
