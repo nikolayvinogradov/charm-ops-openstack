@@ -97,6 +97,9 @@ class OSBaseCharm(CharmBase):
         self.framework.observe(self.on.post_series_upgrade,
                                self.on_post_series_upgrade)
 
+    def set_started(self, started: bool=False) -> None:
+        self._stored.is_started = started
+
     def install_pkgs(self):
         logging.info("Installing packages")
         if self.model.config.get('source'):
